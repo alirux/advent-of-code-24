@@ -35,12 +35,7 @@ public class Day01b {
 	}
 	
 	public Optional<Long> findSimilarity(List<Integer> first, List<Integer> second) {
-//		first.forEach(f -> {
-//			int partialSimilarity = 0;
-//			second.forEach(s -> partialSimilarity += (f == s) ? 1 : 0);
-//		});
-		
-		return first.stream().map(f -> f * second.stream().filter(s -> f.equals(s)).count()).reduce((a, v) -> a + v);
+		return first.stream().map(f -> f * second.stream().filter(f::equals).count()).reduce((result, v) -> result + v);
 	}
 	
 }
